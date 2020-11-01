@@ -1,0 +1,14 @@
+# .rusky
+pre-commit:
+  # return -1 if staged area and unstaged area have the same file to avoid uncommited changes
+  # turn on extglob to parse parentheses correctly
+  - bash -c "shopt -s extglob; if comm -12 --nocheck-order <(git diff --name-only | sort) <(git diff --name-only --cached | sort) | read -n 1; then exit -1; else exit 0; fi"
+
+  #run rubocop in all modified files of staging area
+  - git diff --name-only --cached | xargs ls -1 2>/dev/null | grep '\.rb$' | grep -v -e 'db/.*.rb' | xargs --no-run-if-empty rubocop
+pre-push:
+  # run rspec in all modified files of the branch
+  - git diff --name-only master $(git rev-parse --abbrev-ref HEAD) | xargs ls -1 2>/dev/null | grep '\.*_spec.rb$' | xargs --no-run-if-empty rspec
+
+  # run rspec in all staged files
+  - git diff --name-only --cached | xargs ls -1 2>/dev/null | grep '\.*_spec.rb$' | xargs --no-run-if-empty rspec

@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV["WEB_DB_POOL"] || ENV['RAILS_MAX_THREADS'] || 5 %>
+development:
+  <<: *default
+  database: template_app_api_development
+  username: <%= ENV["DATABASE_USERNAME"] %>
+  password: <%= ENV["DATABASE_PASSWORD"] %>
+  host: <%= ENV["DATABASE_HOST"] %>
+test:
+  <<: *default
+  database: template_app_api_test
+  username: <%= ENV["DATABASE_USERNAME"] %>
+  password: <%= ENV["DATABASE_PASSWORD"] %>
+  host: <%= ENV["DATABASE_HOST"] %>
+production:
+  <<: *default
+  url: <%= ENV["DATABASE_URL"] %>
+  connect_timeout: 10
+  read_timeout: 5
