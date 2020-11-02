@@ -23,5 +23,8 @@ module TemplateAppApi
     config.load_defaults 6.0
     config.api_only = true
     config.debug_exception_response_format = :api
+    config.generators do |g|
+      g.test_framework :rspec
+    end
   end
 end
