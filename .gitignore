@@ -7,3 +7,5 @@ tmp/
 
 .history
 .env
+
+config/database.yml
