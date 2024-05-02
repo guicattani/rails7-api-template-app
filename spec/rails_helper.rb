@@ -9,6 +9,9 @@ require 'rspec/rails'
 require 'factory_bot_rails'
 require 'shoulda/matchers'
 require 'database_cleaner'
+require 'pry'
+require 'dotenv'
+Dotenv.load
 
 Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].sort.each { |f| require f }
 Dir["#{File.dirname(__FILE__)}/helpers/**/*.rb"].sort.each { |f| require f }
@@ -19,9 +22,6 @@ SimpleCov.start
 RSpec.configure do |config|
   config.include(Shoulda::Matchers::ActiveModel, type: :model)
   config.include(Shoulda::Matchers::ActiveRecord, type: :model)
-
-  config.filter_run :focus
-  config.run_all_when_everything_filtered = true
 
   config.before(:suite) do
     # The :transaction strategy prevents :after_commit hooks from running

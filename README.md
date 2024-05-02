@@ -12,10 +12,10 @@ Then do the same for `database.yml` with: `mv config/database.yml.sample  config
   ```
     database_cleaner
     dotenv-rails
-    guard-rspec
     pg
     rubocop
     rspec-rails
+    rspec-watcher
     simplecov
     shoulda-matchers
   ```
@@ -26,7 +26,7 @@ Then do the same for `database.yml` with: `mv config/database.yml.sample  config
   bundle exec rails db:migrate
   ```
 ### Test suite
-  To run the test suite, simply run `rspec`.
+  To run the test suite, simply run `bundle exec rspec`. Or to have `rspec-watcher` do that for you, use `RAILS_ENV=test bundle exec rake rspec_watcher:watch`
 
 ### Deployment
   To deploy to Heroku

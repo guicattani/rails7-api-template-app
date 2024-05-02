@@ -20,7 +20,7 @@ Bundler.require(*Rails.groups)
 module TemplateAppApi
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 6.0
+    config.load_defaults 7.0
     config.api_only = true
     config.debug_exception_response_format = :api
     config.generators do |g|

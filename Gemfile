@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -18,24 +20,23 @@ gem "bootsnap", ">= 1.4.2", require: false
 gem "dotenv"
 
 group :development, :test do
-  gem "debug", platforms: %i[ mri mingw x64_mingw ]
-  gem "faker"
   gem "factory_bot_rails"
+  gem "faker"
+  gem "pry-byebug"
 end
 
 group :development do
-  gem "guard-rspec", require: false
   gem "rubocop"
+  gem "rubocop-factory_bot"
   gem "rubocop-rails"
   gem "rubocop-rspec"
-  gem "rubocop-factory_bot"
   gem "rubocop-rspec_rails"
-  gem "listen", "~> 3.2"
 end
 
 group :test do
   gem "database_cleaner"
   gem "rspec-rails"
+  gem 'rspec-watcher'
   gem "shoulda-matchers", require: false
   gem "simplecov"
 end
