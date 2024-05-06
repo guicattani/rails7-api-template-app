@@ -106,7 +106,7 @@ Style/SwapValues:
   Enabled: true
 
 AllCops:
-  TargetRubyVersion: 3.2.2
+  TargetRubyVersion: 3.3.1
   Exclude:
     - "bin/**/*"
     - "bin/**.*"
