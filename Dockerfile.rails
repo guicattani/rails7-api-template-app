@@ -1,0 +1,15 @@
+ARG RUBY_VERSION=3.3.1
+FROM ruby:$RUBY_VERSION
+
+WORKDIR /app
+COPY . .
+
+# Ensure gems are installed on a persistent volume and available as bins
+VOLUME /bundle
+RUN bundle config set --global path '/bundle'
+ENV PATH="/bundle/ruby/$RUBY_VERSION/bin:${PATH}"
+
+ENV BINDING="0.0.0.0"
+
+RUN bundle install
+ENTRYPOINT ["./docker-entrypoint.sh"]

@@ -1,4 +1,8 @@
 if ENV['RSPEC_WATCHER']
+  # avoid running watched tests in a new container everytime
+  # and fallback to normal db
+  ENV['USE_TEST_CONTAINERS'] = 'false'
+
   RSpecWatcher.configure do
     watch 'spec', only: /_spec\.rb\z/ do |modified, added, _removed|
       modified + added
