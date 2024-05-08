@@ -18,7 +18,7 @@ if ENV['RSPEC_WATCHER']
 
     watch 'app/controllers', only: /\.rb\z/ do |modified, added, removed|
       (modified + added + removed).map do |path|
-        path.sub('/app/', '/spec/').sub('/controllers/', 'requests/').sub('_controller.rb', '_spec.rb')
+        path.sub('/app/', '/spec/').sub('/controllers/', '/requests/').sub('_controller.rb', '_spec.rb')
       end
     end
 
