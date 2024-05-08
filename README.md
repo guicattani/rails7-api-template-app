@@ -27,8 +27,7 @@ Run `touch config/master.key | rails secret` to create a `master.key`.
 ### Database
   TemplateApp API uses PostgreSQL. After setting up your PostgreSQL user, create and migrate the database with:
   ```
-  bundle exec rails db:create
-  bundle exec rails db:migrate
+  bundle exec rails db:create db:migrate
   ```
 ### Test suite
   To run the test suite, simply run `bundle exec rspec`. Or to have `rspec-watcher` do that for you, use `RAILS_ENV=test bundle exec rake rspec_watcher:watch`
