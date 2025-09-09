@@ -10,3 +10,5 @@ tmp/
 
 config/database.yml
 coverage
+
+spec/examples.txt

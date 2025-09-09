@@ -1,16 +1,16 @@
 # TemplateApp API
-A template API Rails 7 project. Yay!
-Ruby version: 3.3.1
+A template API Rails 8 project. Yay!
+Ruby version: 3.4.4
 
-Checkout [rails-7-vite-react-template](https://github.com/guicattani/rails-7-vite-react-template) if you want the Vite + React version of this template. :)
+Checkout [rails8-vite-react-template](https://github.com/guicattani/rails8-vite-react-template) if you want the Vite + React version of this template. :)
 
 ##  Getting started
-Replace every occurrence of `TemplateApp` with the app name you want in this format, and replace every occurrence of`template_app` with the same app name in this underline format.
+1. Environment variables are stored in `.env`. A sample file was provided, run `cp .env.sample .env` to copy to the correct name it so `rails-dotenv` can read them in runtime.
+Then do the same for `database.yml` with: `cp config/database.yml.sample  config/database.yml`. You need also change the occurrences of `CHANGEME` found in these config files.
 
-Environment variables are stored in `.env`. A sample file was provided, run `mv .env.sample .env` to rename it so `rails-dotenv` can read them in runtime.
-Then do the same for `database.yml` with: `mv config/database.yml.sample  config/database.yml`.
+2. Replace every occurrence of `TemplateApp` with the app name you want in this format, and replace every occurrence of`template_app` with the same app name in this underline format and case sensitively.
 
-Run `touch config/master.key | rails secret` to create a `master.key`.
+3. Run `touch config/master.key | rails secret` to create a `master.key`.
 
 ### Gems used:
   ```
